@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My jquery</title>
+    <link rel="stylesheet" href="jQueryFunctions.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#addclass button").click(function(){
+         $('#addclass p').addClass('red');
+        });
+
+        $('#slidetoggle button').click(function(){
+          $('#slidetoggle img').slideToggle();
+        });
+
+        $('#append button').click(function(){
+          $('#thisp').append("<p>You can't handle the truth </p>");
+        });
+
+        $('#show').click(function(){
+          $('.show').show();
+        });
+
+        $('#hide').click(function(){
+          $('.show').hide();
+        });
+
+        $('#toggle').click(function(){
+          $('#slidetoggle img').toggle();
+        })
+
+        $('#slideup').click(function(){
+          $('#slide img').slideUp();
+        });
+
+        $('#slidedown').click(function(){
+          $('#slide img').slideDown();
+        });
+
+        $('#fadein').click(function(){
+          $('#fade img').fadeIn();
+        });
+
+        $('#fadeout').click(function(){
+          $('#fade img').fadeOut();
+        });
+
+        $('#before').click(function(){
+          $('#pp').before("<p>This is a prefix </p>");
+        })
+
+        $('#after').click(function(){
+          $('#pp').after("<p>This is a suffix </p>");
+        })
+
+        $('#html button').click(function(){
+          var newContent = $('#html p').html();
+          $('#attr p').html(newContent);
+        });
+
+        $('#attr button').click(function(){
+          var at =$('#attr div').attr('class');
+          $('#attr p').text(at);
+        });
+
+        $('#value button').click(function(){
+          var val = $(this).text();
+          $('#value input').val(val);
+        });
+
+        $('#text button').click(function(){
+          $('#text h1').text("Get it Done");
+        });
+
+        $('#data button').click(function(){
+          $('#data').data( "test", {first: "data is cool"} );
+          $( "#data span").text( $( "#data" ).data( "test" ).first );
+        })
+
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="addclass">
+        <button type="button" name="button">AddClass</button>
+        <div class="content"><h1>AddClass</h1>
+        <p>Click the button to add class 'red' to this paragraph</p></div>
+      </div>
+
+      <div id="slidetoggle">
+        <button type="button" name="button">Slidetoggle</button>
+        <button id='toggle' type="button" name="button">Toggle</button>
+        <img src="../CSS/portfolio/portfolio/images/bootstrap.png" alt="bootstrap">
+        <div class="content"><h1>Slidetoggle</h1>
+        <p>Click the button to slidetoggle a hidden image</p></div>
+      </div>
+
+      <div id="append">
+        <button type="button" name="button">Append</button>
+        <div class="content"><h1>Append</h1>
+        <p id="thisp">Click the button to append a new paragraph</p></div>
+      </div>
+
+      <div id="display">
+        <button id='show' type="button" name="button">Show</button>
+        <p class='show'>New content you did not see before</p>
+        <button id='hide' type="button" name="button">Hide</button>
+        <div class="content"><h1>Show and Hide</h1>
+        <p>Click the button to display an element or hide element</p></div>
+      </div>
+
+
+      <div id="slide">
+        <button id='slidedown' type="button" name="button">Slide Down</button>
+        <button id='slideup' type="button" name="button">Slide Up</button>
+        <img src="../CSS/portfolio/portfolio/images/bootstrap.png" alt="bootstrap">
+        <div class="content"><h1>Slide Up and Down</h1>
+        <p>Click the button to slide in hidden image</p></div>
+      </div>
+
+
+      <div id="fade">
+        <button id='fadein' type="button" name="button">Fade In</button>
+        <button id='fadeout' type="button" name="button">Fade Out</button>
+        <img src="../CSS/portfolio/portfolio/images/bootstrap.png" alt="bootstrap">
+        <div class="content"><h1>Fade In</h1>
+        <p>Click the buttons to fade image</p></div>
+      </div>
+
+      <div id="beforeafter">
+        <button id='before' type="button" name="button">Before</button>
+        <button id='after' type="button" name="button">After</button>
+        <div class="content"><h1>Before and After</h1>
+        <p id='pp'>Click the buttons to append a new content before or after selected element</p></div>
+      </div>
+
+      <div id="html">
+        <button type="button" name="button">HTML</button>
+        <div class="content"><h1>HTML</h1>
+        <p>Click the button to store content in variable and then put it somewhere else.
+        .html() without parameters acts as a GETTER and with parameters a SETTER.
+        I will copy this paragraph to the one below.</p></div>
+      </div>
+
+      <div id="attr">
+        <button type="button" name="button">Attribute</button>
+        <div class="content"><h1>Attribute</h1>
+        <p>Click the button to grab the attribute of another element and
+        set it equal to this paragraph.</p></div>
+      </div>
+
+      <div id="value">
+        <button name="button">.Value()</button>
+        <div class="content"><h1>Value</h1>
+        <p>Click the button to grab the value of an element and put it in input</p>
+        <input type="text" value="type something"></div>
+      </div>
+
+      <div id="text">
+        <button type="button" name="button">Text</button>
+        <div class="content"><h1>.text()</h1>
+        <p>Chnage the text of elements.</p></div>
+      </div>
+
+      <div id="data">
+        <button type="button" name="button">Data</button>
+        <div class="content"><h1>.data()</h1>
+        <p>Click the button to add data</p>
+        <span></span></div>
+      </div>
+    </div><!--END of WRAPPER--------------------------------------->
+  </body>
+</html>
