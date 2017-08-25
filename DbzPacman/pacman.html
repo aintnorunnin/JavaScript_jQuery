@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pacman</title>
+    <link rel="stylesheet" href="pacman.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var board =  [[1,1,1,1,1,1,1,1,1,1],
+                      [1,0,0,0,0,0,0,0,0,1],
+                      [1,0,1,1,0,0,0,1,0,1],
+                      [1,0,1,1,0,0,0,0,0,1],
+                      [1,0,0,0,2,1,1,0,0,1],
+                      [1,0,0,1,0,0,1,0,0,1],
+                      [1,0,1,0,0,0,0,0,0,1],
+                      [1,0,0,0,1,1,1,0,0,1],
+                      [1,0,0,0,1,0,0,0,0,1],
+                      [1,1,1,1,1,1,1,1,1,1]];
+
+        function DrawWorld(){
+
+          var htmlStr="";
+          for (var y = 0; y < board.length; y++) {
+            for(var x = 0; x < board[y].length; x++){
+              if (board[y][x]==1) {
+                htmlStr += '<div class="wall"></div>';
+              }
+              if (board[y][x]==0) {
+                htmlStr += '<div class="floor"><img src="freeza.gif"></div>';
+              }
+              if (board[y][x]== 2) {
+                htmlStr += '<div class="floor"><img src="trunks.gif"></div>';
+              }
+              if (board[y][x]==3) {
+                //append a black floor tile after trunks gets freeza
+                htmlStr += '<div class="floor"></div>';
+              }
+            }
+          }
+          $("#world").html(htmlStr);
+        }
+        DrawWorld();
+
+        var trunks = {'y':4, 'x':4};
+        $(document).on("keydown","body",function(e){
+          if(e.keyCode == 37){
+            //left
+             if (board[trunks.y][trunks.x -1] != 1) {
+              board[trunks.y][trunks.x] = 3;
+              trunks.x -= 1;
+              board[trunks.y][trunks.x] = 2;
+            }
+          }
+          if(e.keyCode == 38){
+            //up
+            if (board[trunks.y -1][trunks.x] != 1) {
+              board[trunks.y][trunks.x] = 3;
+              trunks.y -= 1;
+              board[trunks.y][trunks.x] = 2;
+            }
+          }
+          if(e.keyCode == 39){
+            //right
+            if (board[trunks.y][trunks.x +1] != 1) {
+              board[trunks.y][trunks.x] = 3;
+              trunks.x += 1;
+              board[trunks.y][trunks.x] = 2;
+            }
+          }
+          if(e.keyCode == 40){
+            //down
+            if (board[trunks.y+1][trunks.x] != 1) {
+              board[trunks.y][trunks.x] = 3;
+              trunks.y += 1;
+              board[trunks.y][trunks.x] = 2;
+            }
+          }
+          DrawWorld();
+        });
+    });
+
+    </script>
+  </head>
+  <body>
+    <div id="world"></div>
+  </body>
+</html>
